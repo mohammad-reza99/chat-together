@@ -1,49 +1,49 @@
 # Together
 
-Together yek chat room-e realtime ba `React`, `Vite` va `Supabase` ast. Login ba Google anjam mishavad, message-ha live sync mishavand, presence online neshan dade mishavad, va indicator-e `typing` ham dar room dar dastres ast.
+Together is a realtime chat room built with `React`, `Vite`, and `Supabase`. It uses Google login through Supabase Auth, syncs messages live, shows online presence, and includes a typing indicator for active conversations.
 
-## Featureha
+## Features
 
-- Google OAuth ba Supabase Auth
-- realtime message stream
-- online presence
-- typing indicator
-- quick emoji bar
-- loading, empty, error, va config states
-- UI responsive va production-ready
+- Google OAuth with Supabase Auth
+- Realtime message stream
+- Online presence tracking
+- Typing indicator
+- Quick emoji bar
+- Loading, empty, error, and config-safe states
+- Responsive production-ready UI
 
-## Run Local
+## Run Locally
 
-1. dependency ha ra nasb kon:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. az rooye `.env.example` yek file be esm `.env` besaz:
+2. Create a `.env` file from `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-3. meghdar haye zir ra ba info project-e Supabase por kon:
+3. Fill in your Supabase project values:
 
 ```env
 VITE_SUPABASE_URL=your-project-url
 VITE_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-4. SQL schema ra dar Supabase ejra kon:
+4. Run the SQL schema inside Supabase:
 
-file: `supabase/messages.sql`
+File: `supabase/messages.sql`
 
-5. app ra اجرا kon:
+5. Start the app:
 
 ```bash
 npm run dev
 ```
 
-## Scriptha
+## Scripts
 
 ```bash
 npm run dev
@@ -54,7 +54,7 @@ npm run preview
 
 ## Database
 
-Table `messages` baraye in موارد set shode:
+The `messages` table is configured with these fields:
 
 - `id`
 - `user_id`
@@ -63,13 +63,13 @@ Table `messages` baraye in موارد set shode:
 - `body`
 - `created_at`
 
-RLS policy ha faal shode-and ta:
+RLS policies are enabled so that:
 
-- user haye authenticated message ha ra ببینند
-- faqat haman user betavanad payam khodesh ra insert konad
+- authenticated users can read messages
+- users can only insert messages for themselves
 
 ## Notes
 
-- max tool-e message dar UI barabar `500` character ast.
-- file `src/lib/supabase.js` marjae asli config client ast.
-- agar env set nabashad, app yek setup state ro neshan midahad bejaye inke crash konad.
+- The UI currently limits each message to `500` characters.
+- `src/lib/supabase.js` is the main client configuration file.
+- If environment variables are missing, the app shows a setup state instead of crashing.
