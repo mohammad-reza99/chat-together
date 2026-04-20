@@ -41,7 +41,8 @@ body {
 }
 
 button,
-input {
+input,
+textarea {
   font: inherit;
 }
 
@@ -49,7 +50,8 @@ button {
   border: 0;
 }
 
-input {
+input,
+textarea {
   border: 0;
   outline: 0;
 }
@@ -278,7 +280,8 @@ input {
 
 .identity-card,
 .metric-card,
-.status-card {
+.status-card,
+.insight-card {
   border-radius: 24px;
   border: 1px solid var(--stroke);
   background: var(--panel-soft);
@@ -343,6 +346,45 @@ input {
   font-size: 0.92rem;
 }
 
+.status-card p {
+  margin: 0;
+}
+
+.insight-card {
+  padding: 18px;
+}
+
+.insight-label,
+.composer-meta,
+.typing-indicator {
+  color: var(--text-soft);
+}
+
+.insight-label,
+.composer-meta {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.insight-title {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #fff4e5;
+}
+
+.insight-copy {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .status-dot,
 .presence-glow {
   width: 10px;
@@ -372,6 +414,11 @@ input {
 
 .chat-header h1 {
   font-size: clamp(2.6rem, 5vw, 4.5rem);
+}
+
+.typing-indicator {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
 }
 
 .presence-pill {
@@ -492,6 +539,32 @@ input {
   color: var(--text-soft);
 }
 
+.emoji-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.emoji-button {
+  min-width: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 12px;
+  color: #fff4e5;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.emoji-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(241, 190, 134, 0.26);
+  background: rgba(241, 190, 134, 0.08);
+}
+
 .composer-input {
   min-height: 62px;
   border-radius: 20px;
@@ -514,6 +587,18 @@ input {
 .composer-input:focus {
   border-color: rgba(241, 190, 134, 0.45);
   box-shadow: 0 0 0 4px rgba(213, 155, 100, 0.12);
+}
+
+.composer-textarea {
+  resize: vertical;
+  min-height: 112px;
+  padding: 16px 18px;
+}
+
+.composer-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .send-button {
@@ -617,5 +702,10 @@ input {
 
   .metric-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .composer-meta {
+    flex-direction: column;
+    gap: 8px;
   }
 }

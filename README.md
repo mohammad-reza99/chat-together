@@ -1,16 +1,75 @@
-# React + Vite
+# Together
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Together yek chat room-e realtime ba `React`, `Vite` va `Supabase` ast. Login ba Google anjam mishavad, message-ha live sync mishavand, presence online neshan dade mishavad, va indicator-e `typing` ham dar room dar dastres ast.
 
-Currently, two official plugins are available:
+## Featureha
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Google OAuth ba Supabase Auth
+- realtime message stream
+- online presence
+- typing indicator
+- quick emoji bar
+- loading, empty, error, va config states
+- UI responsive va production-ready
 
-## React Compiler
+## Run Local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. dependency ha ra nasb kon:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. az rooye `.env.example` yek file be esm `.env` besaz:
+
+```bash
+cp .env.example .env
+```
+
+3. meghdar haye zir ra ba info project-e Supabase por kon:
+
+```env
+VITE_SUPABASE_URL=your-project-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+4. SQL schema ra dar Supabase ejra kon:
+
+file: `supabase/messages.sql`
+
+5. app ra اجرا kon:
+
+```bash
+npm run dev
+```
+
+## Scriptha
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
+
+## Database
+
+Table `messages` baraye in موارد set shode:
+
+- `id`
+- `user_id`
+- `email`
+- `avatar_url`
+- `body`
+- `created_at`
+
+RLS policy ha faal shode-and ta:
+
+- user haye authenticated message ha ra ببینند
+- faqat haman user betavanad payam khodesh ra insert konad
+
+## Notes
+
+- max tool-e message dar UI barabar `500` character ast.
+- file `src/lib/supabase.js` marjae asli config client ast.
+- agar env set nabashad, app yek setup state ro neshan midahad bejaye inke crash konad.
