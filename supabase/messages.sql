@@ -4,8 +4,16 @@ create table if not exists public.messages (
   email text not null,
   avatar_url text,
   body text not null check (char_length(trim(body)) > 0),
-  created_at timestamptz not null default timezone('utc', now())
+  created_at timestamptz not null default timezone('utc', now()),
+  delivered_at timestamptz not null default timezone('utc', now()),
+  seen_at timestamptz
 );
+
+alter table public.messages
+  add column if not exists delivered_at timestamptz not null default timezone('utc', now());
+
+alter table public.messages
+  add column if not exists seen_at timestamptz;
 
 create index if not exists messages_created_at_idx
   on public.messages (created_at asc);
@@ -25,6 +33,14 @@ on public.messages
 for insert
 to authenticated
 with check (auth.uid() = user_id);
+
+drop policy if exists "Authenticated users can update seen state" on public.messages;
+create policy "Authenticated users can update seen state"
+on public.messages
+for update
+to authenticated
+using (true)
+with check (true);
 
 do $$
 begin

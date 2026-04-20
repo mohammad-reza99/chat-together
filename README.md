@@ -2,6 +2,19 @@
 
 Together is a realtime chat room built with `React`, `Vite`, and `Supabase`. It uses Google login through Supabase Auth, syncs messages live, shows online presence, and includes a typing indicator for active conversations.
 
+## Live Demo
+
+Add your deployed app URL here:
+
+`https://your-live-url-here`
+
+## Screenshots
+
+Replace these two paths with real project screenshots after exporting them from the running app:
+
+![Login Screen](./public/screenshots/login-screen.png.svg)
+![Chat Screen](./public/screenshots/chat-screen.png.svg)
+
 ## Features
 
 - Google OAuth with Supabase Auth
