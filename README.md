@@ -82,6 +82,10 @@ RLS policies are enabled so that:
 - authenticated users can read messages
 - users can only insert messages for themselves
 
+## 🌐 Live Demo
+
+https://chat-together-sage.vercel.app
+
 ## Notes
 
 - The UI currently limits each message to `500` characters.
