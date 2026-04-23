@@ -12,8 +12,9 @@ Add your deployed app URL here:
 
 Replace these two paths with real project screenshots after exporting them from the running app:
 
-![Login Screen](./public/screenshots/login-screen.png.svg)
-![Chat Screen](./public/screenshots/chat-screen.png.svg)
+![Login Screen](./public/screenshots/login.png)
+![sign in screen](./public/screenshots/sign-in.png)
+![chat screen](./public/screenshots/open-to.png)
 
 ## Features
 
@@ -64,12 +65,6 @@ npm run build
 npm run lint
 npm run preview
 ```
-
-## 📸 Screenshots
-
-![Chat App Screenshot](./public/screenshots/login.png)
-![Chat App Screenshot](./public/screenshots/sign-in.png)
-![Chat App Screenshot](./public/screenshots/open-to.png)
 
 ## Database
 
