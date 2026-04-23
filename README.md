@@ -65,6 +65,12 @@ npm run lint
 npm run preview
 ```
 
+## 📸 Screenshots
+
+![Chat App Screenshot](./public/screenshots/login.png)
+![Chat App Screenshot](./public/screenshots/sign-in.png)
+![Chat App Screenshot](./public/screenshots/open-to.png)
+
 ## Database
 
 The `messages` table is configured with these fields:
